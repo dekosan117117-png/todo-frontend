@@ -21,53 +21,54 @@ export default function RegisterPage() {
     setPriority(3)
     setExpiryDate('')
     setShowModal(true)
-}
+  }
 
   return (
   <>
     {showModal && (
-      <div style={overlay}>
+    <div style={overlay}>
         <div style={modalBox}>
-          <p style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>✅ 登録完了！</p>
-          <button style={btnPrimary} onClick={() => setShowModal(false)}>閉じる</button>
+        <p style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>✅ 登録完了！</p>
+        <button style={btnPrimary} onClick={() => setShowModal(false)}>閉じる</button>
         </div>
-      </div>
+    </div>
     )}
     <div style={container}>
-      <h1 style={{ marginBottom: '1.5rem' }}>タスク登録</h1>
-      <div style={form}>
+    <h1 style={{ marginBottom: '1.5rem' }}>タスク登録</h1>
+    <div style={form}>
         <div style={fieldGroup}>
-          <label style={label}>タスク名</label>
-          <input
+        <label style={label}>タスク名</label>
+        <input
             style={input}
             placeholder="タスク名を入力"
             value={title}
             onChange={e => setTitle(e.target.value)}
-          />
+        />
         </div>
         <div style={fieldGroup}>
-          <label style={label}>優先度</label>
-          <select style={input} value={priority} onChange={e => setPriority(e.target.value)}>
+        <label style={label}>優先度</label>
+        <select style={input} value={priority} onChange={e => setPriority(e.target.value)}>
             <option value={1}>低</option>
             <option value={3}>中</option>
             <option value={5}>高</option>
-          </select>
+        </select>
         </div>
         <div style={fieldGroup}>
-          <label style={label}>期限</label>
-          <input
+        <label style={label}>期限</label>
+        <input
             style={input}
             type="date"
             value={expiryDate}
             onChange={e => setExpiryDate(e.target.value)}
-          />
+        />
         </div>
         <button style={btnPrimary} onClick={handleSubmit}>登録</button>
         <button style={btnSecondary} onClick={() => navigate('/list')}>一覧へ</button>
-      </div>
+    </div>
     </div>
   </>
-)
+  )
+}
 
 const container = {
   padding: '1.5rem',
