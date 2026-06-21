@@ -1,0 +1,23 @@
+# 依存関係
+node_modules/
+
+# ビルド成果物
+dist/
+
+# 環境変数
+.env
+.env.local
+.env.*.local
+
+# ログ
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# エディタ
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
