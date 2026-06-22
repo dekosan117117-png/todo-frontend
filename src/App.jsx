@@ -17,9 +17,14 @@ export default function App() {
   // トークンが有効か確認
   client.get('/todos').then(() => {
     setIsLoggedIn(true)
-  }).catch(() => {
-    localStorage.removeItem('token')
-    setIsLoggedIn(false)
+  }).catch((error) => {
+      // 401のときだけトークン削除、それ以外はログイン状態維持
+      if (error.response && error.response.status === 401) {
+          localStorage.removeItem('token')
+          setIsLoggedIn(false)
+      } else {
+          setIsLoggedIn(true)  // スリープ等のエラーはログイン維持
+      }
   })
 }, [])
 
